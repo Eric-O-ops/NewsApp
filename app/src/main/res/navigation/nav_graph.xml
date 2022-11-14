@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/everythingNewsFragment">
+    <fragment
+        android:id="@+id/everythingNewsFragment"
+        android:name="com.geektech.newsapp.ui.fragments.EverythingNewsFragment"
+        android:label="fragment_everything_news"
+        tools:layout="@layout/fragment_everything_news" />
+</navigation>
