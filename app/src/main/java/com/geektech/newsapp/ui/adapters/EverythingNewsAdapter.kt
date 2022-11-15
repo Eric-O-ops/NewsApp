@@ -2,19 +2,21 @@ package com.geektech.newsapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.geektech.newsapp.databinding.ItemNewsBinding
 import com.geektech.newsapp.model.EverythingNewsModel
 
 class EverythingNewsAdapter :
-    ListAdapter<EverythingNewsModel, EverythingNewsAdapter.ViewHolder>(diffUtil) {
+    PagingDataAdapter<EverythingNewsModel, EverythingNewsAdapter.ViewHolder>(diffUtil) {
 
-    class ViewHolder(private val binding: ItemNewsBinding ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: EverythingNewsModel?) {
-            binding.name.text = item?.author
-
+    class ViewHolder(private val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(item: EverythingNewsModel?) = with(binding) {
+            itemTitle.text = item?.title
+            itemAuthor.text = item?.author
+            Glide.with(itemImage).load(item?.urlToImage).into(itemImage)
         }
     }
 
@@ -41,7 +43,7 @@ class EverythingNewsAdapter :
                 oldItem: EverythingNewsModel,
                 newItem: EverythingNewsModel
             ): Boolean {
-                return oldItem.author == newItem.author
+                return oldItem.urlToImage == newItem.urlToImage
             }
         }
     }

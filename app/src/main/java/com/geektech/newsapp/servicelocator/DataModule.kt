@@ -1,4 +1,4 @@
-package com.geektech.newsapp.di
+package com.geektech.newsapp.servicelocator
 
 import com.geektech.newsapp.data.repositories.EverythingNewsRepository
 import com.geektech.newsapp.ui.fragments.EverythingNewsViewModel
